@@ -8,6 +8,7 @@
 
 #import "MasterTableViewController.h"
 #import "UIViewController+Split.h"
+#import "DetailViewController.h"
 
 @interface MasterTableViewController ()
 
@@ -27,29 +28,33 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"masterTableViewCell" forIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
+    NSString *titleString = nil;
+    if (indexPath.row == 0) {
+        titleString = @"Push Push Push!!!";
+    } else if (indexPath.row == 1) {
+        titleString = @"Replace Last View Controller";
+    } else if (indexPath.row == 2) {
+        titleString = @"Pop View Controller";
+    } else if (indexPath.row == 3) {
+        titleString = @"Pop To Root";
+    }
+    cell.textLabel.text = titleString;
     return cell;
 }
 
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    if (indexPath.row == 1) {
-        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
-        vc.view.backgroundColor = [UIColor redColor];
-        NSLog(@"%@", self.yz_splitViewController.detailNavigationController.topViewController);
-        [self.yz_splitViewController.detailNavigationController replaceViewController:vc];
-    } else if (indexPath.row == 2) {
-        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
-        vc.view.backgroundColor = [UIColor blueColor];
-        NSLog(@"%@", self.yz_splitViewController.detailNavigationController.topViewController);
+    DetailViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+    if (indexPath.row == 0) {
         [self.yz_splitViewController.detailNavigationController pushViewController:vc animated:YES];
-    } else if (indexPath.row == 3) {
-        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
-        vc.view.backgroundColor = [UIColor blueColor];
-        NSLog(@"%@", self.yz_splitViewController.detailNavigationController.topViewController);
+    } else if (indexPath.row == 1) {
+        vc.view.backgroundColor = [UIColor orangeColor];
+        [self.yz_splitViewController.detailNavigationController replaceLastViewController:vc];
+    }  else if (indexPath.row == 2) {
         [self.yz_splitViewController.detailNavigationController popViewControllerAnimated:YES];
+    } else if (indexPath.row == 3) {
+        [self.yz_splitViewController.detailNavigationController popToRootViewControllerAnimated:YES];
     }
 }
 
