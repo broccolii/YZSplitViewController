@@ -16,6 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+     self.contentLabel.text = [NSString stringWithFormat:@"当前是第%ld个 ViewController", self.navigationController.viewControllers.count];
 }
 
 @end
