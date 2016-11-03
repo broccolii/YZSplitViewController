@@ -11,6 +11,5 @@
 
 @interface BaseSplitViewController : YZSplitViewController
 
-
 @end
 

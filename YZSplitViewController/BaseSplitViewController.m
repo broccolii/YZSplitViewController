@@ -21,9 +21,6 @@
     UIViewController *masterTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MasterTableViewController"];
     UIViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
     
-//    masterTableViewController.yz_splitViewController = self;
-//    detailViewController.yz_splitViewController = self;
-    
     [self setMasterViewController:masterTableViewController
              detailViewController:detailViewController];
 }
