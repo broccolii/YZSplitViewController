@@ -16,6 +16,7 @@
 		A447E1351DCAD55500C36F6F /* YZSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A447E1341DCAD55500C36F6F /* YZSplitViewController.m */; };
 		A447E1381DCADA2C00C36F6F /* MasterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A447E1371DCADA2C00C36F6F /* MasterTableViewController.m */; };
 		A447E13B1DCADA3800C36F6F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A447E13A1DCADA3800C36F6F /* DetailViewController.m */; };
+		A4B7EC491DCB2F700028C18B /* UIViewController+Split.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B7EC481DCB2F700028C18B /* UIViewController+Split.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		A447E1371DCADA2C00C36F6F /* MasterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterTableViewController.m; sourceTree = "<group>"; };
 		A447E1391DCADA3800C36F6F /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		A447E13A1DCADA3800C36F6F /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		A4B7EC471DCB2F700028C18B /* UIViewController+Split.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Split.h"; sourceTree = "<group>"; };
+		A4B7EC481DCB2F700028C18B /* UIViewController+Split.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Split.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +101,8 @@
 			children = (
 				A447E1331DCAD55500C36F6F /* YZSplitViewController.h */,
 				A447E1341DCAD55500C36F6F /* YZSplitViewController.m */,
+				A4B7EC471DCB2F700028C18B /* UIViewController+Split.h */,
+				A4B7EC481DCB2F700028C18B /* UIViewController+Split.m */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -133,7 +138,7 @@
 				TargetAttributes = {
 					A447E1171DCA2B8C00C36F6F = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = RJXPJ9T4QP;
+						DevelopmentTeam = RNG6JK98J6;
 					};
 				};
 			};
@@ -173,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4B7EC491DCB2F700028C18B /* UIViewController+Split.m in Sources */,
 				A447E13B1DCADA3800C36F6F /* DetailViewController.m in Sources */,
 				A447E1381DCADA2C00C36F6F /* MasterTableViewController.m in Sources */,
 				A447E1351DCAD55500C36F6F /* YZSplitViewController.m in Sources */,
@@ -292,9 +298,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = YZSplitViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.broccoliii.YZSplitViewController;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youzan.YZSplitViewController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -303,9 +310,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = YZSplitViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.broccoliii.YZSplitViewController;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youzan.YZSplitViewController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -329,6 +337,7 @@
 				A447E1311DCA2B8C00C36F6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
