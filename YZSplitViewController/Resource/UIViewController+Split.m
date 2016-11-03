@@ -7,7 +7,6 @@
 //
 
 #import "UIViewController+Split.h"
-#import "YZSplitViewController.h"
 #import <objc/runtime.h>
 
 @implementation UIViewController (Split)
@@ -19,6 +18,17 @@
 
 - (void)setYz_splitViewController:(YZSplitViewController *)yz_splitViewController {
     objc_setAssociatedObject(self, @selector(yz_splitViewController), yz_splitViewController, OBJC_ASSOCIATION_ASSIGN);
+}
+
+@end
+
+@implementation UINavigationController (Split)
+
+- (void)replaceViewController:(UIViewController *)viewController {
+    NSMutableArray *viewControllers = [self.viewControllers mutableCopy];
+    [viewControllers removeObject:viewControllers.lastObject];
+    [viewControllers addObject:viewController];
+    self.viewControllers = viewControllers;
 }
 
 @end

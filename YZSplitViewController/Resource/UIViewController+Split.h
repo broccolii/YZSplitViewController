@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YZSplitViewController.h"
 
-@class YZSplitViewController;
 @interface UIViewController (Split)
 
 @property (nonatomic, strong) YZSplitViewController *yz_splitViewController;
 
 @end
+
+@interface UINavigationController (Split)
+
+- (void)replaceViewController:(UIViewController *)viewController;
+
+@end
+
