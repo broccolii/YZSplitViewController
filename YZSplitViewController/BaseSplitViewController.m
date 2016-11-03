@@ -7,6 +7,7 @@
 //
 
 #import "BaseSplitViewController.h"
+#import "UIViewController+Split.h"
 
 @interface BaseSplitViewController ()
 
@@ -17,8 +18,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self setMasterViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"MasterTableViewController"]
-             detailViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"]];
+    UIViewController *masterTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MasterTableViewController"];
+    UIViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+    
+//    masterTableViewController.yz_splitViewController = self;
+//    detailViewController.yz_splitViewController = self;
+    
+    [self setMasterViewController:masterTableViewController
+             detailViewController:detailViewController];
 }
 
 @end
