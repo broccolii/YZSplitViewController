@@ -12,12 +12,14 @@
 @interface UIViewController (Split)
 
 @property (nonatomic, strong) YZSplitViewController *yz_splitViewController;
+@property (nonatomic, strong, readonly) UIViewController *yz_topMasterViewController;
+@property (nonatomic, strong, readonly) UIViewController *yz_topDetailViewController;
 
 @end
 
 @interface UINavigationController (Split)
 
-- (void)replaceViewController:(UIViewController *)viewController;
+- (void)replaceLastViewController:(UIViewController *)viewController;
 
 @end
 

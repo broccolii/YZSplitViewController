@@ -11,6 +11,8 @@
 
 @implementation UIViewController (Split)
 @dynamic yz_splitViewController;
+@dynamic yz_topMasterViewController;
+@dynamic yz_topDetailViewController;
 
 - (YZSplitViewController *)yz_splitViewController {
     return (YZSplitViewController *)objc_getAssociatedObject(self, @selector(yz_splitViewController));
@@ -20,11 +22,19 @@
     objc_setAssociatedObject(self, @selector(yz_splitViewController), yz_splitViewController, OBJC_ASSOCIATION_ASSIGN);
 }
 
+- (UIViewController *)yz_topMasterViewController {
+    return self.yz_splitViewController.masterNavigationController.topViewController;
+}
+
+- (UIViewController *)yz_topDetailController {
+    return self.yz_splitViewController.detailNavigationController.topViewController;
+}
+
 @end
 
 @implementation UINavigationController (Split)
 
-- (void)replaceViewController:(UIViewController *)viewController {
+- (void)replaceLastViewController:(UIViewController *)viewController {
     NSMutableArray *viewControllers = [self.viewControllers mutableCopy];
     [viewControllers removeObject:viewControllers.lastObject];
     [viewControllers addObject:viewController];
