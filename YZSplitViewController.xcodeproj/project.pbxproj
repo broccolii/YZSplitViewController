@@ -1,0 +1,336 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A447E11D1DCA2B8C00C36F6F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A447E11C1DCA2B8C00C36F6F /* main.m */; };
+		A447E1201DCA2B8C00C36F6F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A447E11F1DCA2B8C00C36F6F /* AppDelegate.m */; };
+		A447E1231DCA2B8C00C36F6F /* BaseSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A447E1221DCA2B8C00C36F6F /* BaseSplitViewController.m */; };
+		A447E1261DCA2B8C00C36F6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A447E1241DCA2B8C00C36F6F /* Main.storyboard */; };
+		A447E1281DCA2B8C00C36F6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A447E1271DCA2B8C00C36F6F /* Assets.xcassets */; };
+		A447E12B1DCA2B8C00C36F6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A447E1291DCA2B8C00C36F6F /* LaunchScreen.storyboard */; };
+		A447E1351DCAD55500C36F6F /* YZSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A447E1341DCAD55500C36F6F /* YZSplitViewController.m */; };
+		A447E1381DCADA2C00C36F6F /* MasterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A447E1371DCADA2C00C36F6F /* MasterTableViewController.m */; };
+		A447E13B1DCADA3800C36F6F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A447E13A1DCADA3800C36F6F /* DetailViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A447E1181DCA2B8C00C36F6F /* YZSplitViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YZSplitViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A447E11C1DCA2B8C00C36F6F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A447E11E1DCA2B8C00C36F6F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A447E11F1DCA2B8C00C36F6F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A447E1211DCA2B8C00C36F6F /* BaseSplitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseSplitViewController.h; sourceTree = "<group>"; };
+		A447E1221DCA2B8C00C36F6F /* BaseSplitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseSplitViewController.m; sourceTree = "<group>"; };
+		A447E1251DCA2B8C00C36F6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A447E1271DCA2B8C00C36F6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A447E12A1DCA2B8C00C36F6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A447E12C1DCA2B8C00C36F6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A447E1331DCAD55500C36F6F /* YZSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZSplitViewController.h; sourceTree = "<group>"; };
+		A447E1341DCAD55500C36F6F /* YZSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZSplitViewController.m; sourceTree = "<group>"; };
+		A447E1361DCADA2C00C36F6F /* MasterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterTableViewController.h; sourceTree = "<group>"; };
+		A447E1371DCADA2C00C36F6F /* MasterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterTableViewController.m; sourceTree = "<group>"; };
+		A447E1391DCADA3800C36F6F /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		A447E13A1DCADA3800C36F6F /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A447E1151DCA2B8C00C36F6F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A447E10F1DCA2B8C00C36F6F = {
+			isa = PBXGroup;
+			children = (
+				A447E11A1DCA2B8C00C36F6F /* YZSplitViewController */,
+				A447E1191DCA2B8C00C36F6F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A447E1191DCA2B8C00C36F6F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A447E1181DCA2B8C00C36F6F /* YZSplitViewController.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A447E11A1DCA2B8C00C36F6F /* YZSplitViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A447E1321DCAD54500C36F6F /* Resource */,
+				A447E11E1DCA2B8C00C36F6F /* AppDelegate.h */,
+				A447E11F1DCA2B8C00C36F6F /* AppDelegate.m */,
+				A447E1211DCA2B8C00C36F6F /* BaseSplitViewController.h */,
+				A447E1221DCA2B8C00C36F6F /* BaseSplitViewController.m */,
+				A447E1361DCADA2C00C36F6F /* MasterTableViewController.h */,
+				A447E1371DCADA2C00C36F6F /* MasterTableViewController.m */,
+				A447E1391DCADA3800C36F6F /* DetailViewController.h */,
+				A447E13A1DCADA3800C36F6F /* DetailViewController.m */,
+				A447E1241DCA2B8C00C36F6F /* Main.storyboard */,
+				A447E1271DCA2B8C00C36F6F /* Assets.xcassets */,
+				A447E1291DCA2B8C00C36F6F /* LaunchScreen.storyboard */,
+				A447E12C1DCA2B8C00C36F6F /* Info.plist */,
+				A447E11B1DCA2B8C00C36F6F /* Supporting Files */,
+			);
+			path = YZSplitViewController;
+			sourceTree = "<group>";
+		};
+		A447E11B1DCA2B8C00C36F6F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A447E11C1DCA2B8C00C36F6F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A447E1321DCAD54500C36F6F /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				A447E1331DCAD55500C36F6F /* YZSplitViewController.h */,
+				A447E1341DCAD55500C36F6F /* YZSplitViewController.m */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A447E1171DCA2B8C00C36F6F /* YZSplitViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A447E12F1DCA2B8C00C36F6F /* Build configuration list for PBXNativeTarget "YZSplitViewController" */;
+			buildPhases = (
+				A447E1141DCA2B8C00C36F6F /* Sources */,
+				A447E1151DCA2B8C00C36F6F /* Frameworks */,
+				A447E1161DCA2B8C00C36F6F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YZSplitViewController;
+			productName = YZSplitViewController;
+			productReference = A447E1181DCA2B8C00C36F6F /* YZSplitViewController.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A447E1101DCA2B8C00C36F6F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = broccoliii;
+				TargetAttributes = {
+					A447E1171DCA2B8C00C36F6F = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = RJXPJ9T4QP;
+					};
+				};
+			};
+			buildConfigurationList = A447E1131DCA2B8C00C36F6F /* Build configuration list for PBXProject "YZSplitViewController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A447E10F1DCA2B8C00C36F6F;
+			productRefGroup = A447E1191DCA2B8C00C36F6F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A447E1171DCA2B8C00C36F6F /* YZSplitViewController */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A447E1161DCA2B8C00C36F6F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A447E12B1DCA2B8C00C36F6F /* LaunchScreen.storyboard in Resources */,
+				A447E1281DCA2B8C00C36F6F /* Assets.xcassets in Resources */,
+				A447E1261DCA2B8C00C36F6F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A447E1141DCA2B8C00C36F6F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A447E13B1DCADA3800C36F6F /* DetailViewController.m in Sources */,
+				A447E1381DCADA2C00C36F6F /* MasterTableViewController.m in Sources */,
+				A447E1351DCAD55500C36F6F /* YZSplitViewController.m in Sources */,
+				A447E1231DCA2B8C00C36F6F /* BaseSplitViewController.m in Sources */,
+				A447E1201DCA2B8C00C36F6F /* AppDelegate.m in Sources */,
+				A447E11D1DCA2B8C00C36F6F /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A447E1241DCA2B8C00C36F6F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A447E1251DCA2B8C00C36F6F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A447E1291DCA2B8C00C36F6F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A447E12A1DCA2B8C00C36F6F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A447E12D1DCA2B8C00C36F6F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		A447E12E1DCA2B8C00C36F6F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A447E1301DCA2B8C00C36F6F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = YZSplitViewController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.broccoliii.YZSplitViewController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A447E1311DCA2B8C00C36F6F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = YZSplitViewController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.broccoliii.YZSplitViewController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A447E1131DCA2B8C00C36F6F /* Build configuration list for PBXProject "YZSplitViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A447E12D1DCA2B8C00C36F6F /* Debug */,
+				A447E12E1DCA2B8C00C36F6F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A447E12F1DCA2B8C00C36F6F /* Build configuration list for PBXNativeTarget "YZSplitViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A447E1301DCA2B8C00C36F6F /* Debug */,
+				A447E1311DCA2B8C00C36F6F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A447E1101DCA2B8C00C36F6F /* Project object */;
+}
