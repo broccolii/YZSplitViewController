@@ -7,12 +7,21 @@
 //
 
 #import "YZSplitViewController.h"
+#import "UIViewController+Split.h"
 
 @interface YZSplitViewController ()
 
 @end
 
 @implementation YZSplitViewController
+
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self setupDefaultValue];
+    }
+    return self;
+}
 
 - (instancetype)init {
     self = [super init];
@@ -38,27 +47,58 @@
 }
 
 - (void)setMasterViewController:(UIViewController *)masterViewController detailViewController:(UIViewController *)detailViewController {
+    
+    masterViewController.yz_splitViewController = self;
+    detailViewController.yz_splitViewController = self;
+    
     _masterViewController = masterViewController;
     _detailViewController = detailViewController;
     
     _masterNavigationController = [[UINavigationController alloc] initWithRootViewController:_masterViewController];
-    _detailNavigationController = [[UINavigationController alloc] initWithRootViewController:_detailViewController];
     
-    [self setupUI];
+    if (!_detailViewController) {
+        UIViewController *clearViewController = [[UIViewController alloc] init];
+        clearViewController.view.backgroundColor = [UIColor clearColor];
+        _detailViewController = clearViewController;
+    }
+    
+    _detailNavigationController = [[UINavigationController alloc] initWithRootViewController:_detailViewController];
+    [_masterNavigationController setNavigationBarHidden:YES];
+    [_detailNavigationController setNavigationBarHidden:YES];
+    
+    [self layoutSubview];
 }
 
-- (void)setupUI {
-    [self addChildViewController:self.masterViewController];
-    [self addChildViewController:self.detailViewController];
+- (void)layoutSubview {
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
-    UIView *masterView = self.masterViewController.view;
-    UIView *detailView = self.detailViewController.view;
+    self.view.backgroundColor = [UIColor colorWithRed:0.933 green:0.933 blue:0.933 alpha:1];
     
-    masterView.frame = CGRectMake(0, 0, 300, self.view.bounds.size.height);
+    [self addChildViewController:self.masterNavigationController];
+    UIView *masterView = self.masterNavigationController.view;
     [self.view addSubview:masterView];
+    [masterView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    NSLayoutConstraint *topMasterContraint = [NSLayoutConstraint constraintWithItem:masterView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1.0 constant:self.contentInsert.top];
+    NSLayoutConstraint *bottomMasterContraint = [NSLayoutConstraint constraintWithItem:masterView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-self.contentInsert.bottom];
+    NSLayoutConstraint *leftMasterContraint = [NSLayoutConstraint constraintWithItem:masterView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:self.contentInsert.left];
+    NSLayoutConstraint *widthMasterContraint = [NSLayoutConstraint constraintWithItem:masterView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:self.masterWidth];
     
-    detailView.frame = CGRectMake(300, 0, self.view.bounds.size.width - 300, self.view.bounds.size.height);
+    NSArray *masterViewContraints = @[topMasterContraint, bottomMasterContraint, leftMasterContraint, widthMasterContraint];
+    [self.view addConstraints: masterViewContraints];
+    
+    
+    [self addChildViewController:self.detailNavigationController];
+    UIView *detailView = self.detailNavigationController.view;
     [self.view addSubview:detailView];
+    [detailView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    NSLayoutConstraint *topDetailContraint = [NSLayoutConstraint constraintWithItem:detailView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1.0 constant:self.contentInsert.top];
+    NSLayoutConstraint *bottomDetailContraint = [NSLayoutConstraint constraintWithItem:detailView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-self.contentInsert.bottom];
+    NSLayoutConstraint *rightDetailContraint = [NSLayoutConstraint constraintWithItem:detailView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:-self.contentInsert.right];
+    NSLayoutConstraint *widthDetailContraint = [NSLayoutConstraint constraintWithItem:detailView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:masterView attribute:NSLayoutAttributeRight multiplier:1.0 constant:self.separatorWidth];
+    
+    NSArray *detailViewContraints = @[topDetailContraint, bottomDetailContraint, rightDetailContraint, widthDetailContraint];
+    [self.view addConstraints: detailViewContraints];
     
     [self.view setNeedsLayout];
 }
