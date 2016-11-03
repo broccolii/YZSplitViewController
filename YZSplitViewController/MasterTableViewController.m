@@ -50,7 +50,7 @@
         [self.yz_splitViewController.detailNavigationController pushViewController:vc animated:YES];
     } else if (indexPath.row == 1) {
         vc.view.backgroundColor = [UIColor orangeColor];
-        [self.yz_splitViewController.detailNavigationController replaceLastViewController:vc];
+        [self.yz_splitViewController.detailNavigationController yz_replaceLastViewController:vc];
     }  else if (indexPath.row == 2) {
         [self.yz_splitViewController.detailNavigationController popViewControllerAnimated:YES];
     } else if (indexPath.row == 3) {

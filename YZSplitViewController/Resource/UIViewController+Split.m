@@ -34,7 +34,7 @@
 
 @implementation UINavigationController (Split)
 
-- (void)replaceLastViewController:(UIViewController *)viewController {
+- (void)yz_replaceLastViewController:(UIViewController *)viewController {
     NSMutableArray *viewControllers = [self.viewControllers mutableCopy];
     [viewControllers removeObject:viewControllers.lastObject];
     [viewControllers addObject:viewController];

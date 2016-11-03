@@ -19,7 +19,7 @@
 
 @interface UINavigationController (Split)
 
-- (void)replaceLastViewController:(UIViewController *)viewController;
+- (void)yz_replaceLastViewController:(UIViewController *)viewController;
 
 @end
 
