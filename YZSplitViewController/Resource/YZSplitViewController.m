@@ -31,7 +31,19 @@
     return self;
 }
 
-- (instancetype)initWithMasterViewController:(UIViewController *)masterViewController detailViewController:(UIViewController *)detailViewController {
+- (instancetype)initWithMasterViewControllerClass:(Class)masterViewControllerClass
+                        detailViewControllerClass:(Class)detailViewControllerClass {
+    self = [super init];
+    if (self) {
+        [self setupDefaultValue];
+        [self setMasterViewController:[[masterViewControllerClass alloc] init]
+                 detailViewController:[[detailViewControllerClass alloc] init]];
+    }
+    return self;
+}
+
+- (instancetype)initWithMasterViewController:(UIViewController *)masterViewController
+                        detailViewController:(UIViewController *)detailViewController {
     self = [super init];
     if (self) {
         [self setupDefaultValue];
@@ -61,10 +73,13 @@
         clearViewController.view.backgroundColor = [UIColor clearColor];
         _detailViewController = clearViewController;
     }
-    
     _detailNavigationController = [[UINavigationController alloc] initWithRootViewController:_detailViewController];
+    
     [_masterNavigationController setNavigationBarHidden:YES];
     [_detailNavigationController setNavigationBarHidden:YES];
+    
+    [self addChildViewController:self.masterNavigationController];
+    [self addChildViewController:self.detailNavigationController];
     
     [self layoutSubview];
 }
@@ -74,9 +89,9 @@
     
     self.view.backgroundColor = [UIColor colorWithRed:0.933 green:0.933 blue:0.933 alpha:1];
     
-    [self addChildViewController:self.masterNavigationController];
     UIView *masterView = self.masterNavigationController.view;
     [self.view addSubview:masterView];
+    
     [masterView setTranslatesAutoresizingMaskIntoConstraints:NO];
     NSLayoutConstraint *topMasterContraint = [NSLayoutConstraint constraintWithItem:masterView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1.0 constant:self.contentInsert.top];
     NSLayoutConstraint *bottomMasterContraint = [NSLayoutConstraint constraintWithItem:masterView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-self.contentInsert.bottom];
@@ -87,11 +102,10 @@
     [self.view addConstraints: masterViewContraints];
     
     
-    [self addChildViewController:self.detailNavigationController];
     UIView *detailView = self.detailNavigationController.view;
     [self.view addSubview:detailView];
-    [detailView setTranslatesAutoresizingMaskIntoConstraints:NO];
     
+    [detailView setTranslatesAutoresizingMaskIntoConstraints:NO];
     NSLayoutConstraint *topDetailContraint = [NSLayoutConstraint constraintWithItem:detailView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1.0 constant:self.contentInsert.top];
     NSLayoutConstraint *bottomDetailContraint = [NSLayoutConstraint constraintWithItem:detailView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-self.contentInsert.bottom];
     NSLayoutConstraint *rightDetailContraint = [NSLayoutConstraint constraintWithItem:detailView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:-self.contentInsert.right];

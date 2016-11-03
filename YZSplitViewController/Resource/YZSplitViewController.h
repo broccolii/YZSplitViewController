@@ -20,6 +20,13 @@
 @property (nonatomic, assign) CGFloat masterWidth;
 @property (nonatomic, assign) CGFloat separatorWidth;
 
-- (void)setMasterViewController:(UIViewController *)masterViewController detailViewController:(UIViewController *)detailViewController;
+- (instancetype)initWithMasterViewController:(UIViewController *)masterViewController
+                        detailViewController:(UIViewController *)detailViewController;
+
+- (instancetype)initWithMasterViewControllerClass:(Class)masterViewControllerClass
+                        detailViewControllerClass:(Class)detailViewControllerClass;
+
+- (void)setMasterViewController:(UIViewController *)masterViewController
+           detailViewController:(UIViewController *)detailViewController;
 
 @end
