@@ -125,4 +125,8 @@
     }
 }
 
+- (void)dealloc {
+    [self.detailNavigationController removeObserver:self forKeyPath:@"viewControllers"];
+}
+
 @end
