@@ -75,6 +75,8 @@
     }
     _detailNavigationController = [[UINavigationController alloc] initWithRootViewController:_detailViewController];
     
+    [self.detailNavigationController addObserver:self forKeyPath:@"viewControllers" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+    
     [_masterNavigationController setNavigationBarHidden:YES];
     [_detailNavigationController setNavigationBarHidden:YES];
     
@@ -115,6 +117,12 @@
     [self.view addConstraints: detailViewContraints];
     
     [self.view setNeedsLayout];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+    if (object == self.detailNavigationController) {
+        self.detailNavigationController.topViewController.yz_splitViewController = self;
+    }
 }
 
 @end
