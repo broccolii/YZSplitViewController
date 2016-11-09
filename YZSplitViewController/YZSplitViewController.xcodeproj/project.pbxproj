@@ -16,6 +16,7 @@
 		A447E1351DCAD55500C36F6F /* YZSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A447E1341DCAD55500C36F6F /* YZSplitViewController.m */; };
 		A447E1381DCADA2C00C36F6F /* MasterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A447E1371DCADA2C00C36F6F /* MasterTableViewController.m */; };
 		A447E13B1DCADA3800C36F6F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A447E13A1DCADA3800C36F6F /* DetailViewController.m */; };
+		A46014B71DD2D1C400134AC9 /* UIViewController+CloseView.m in Sources */ = {isa = PBXBuildFile; fileRef = A46014B61DD2D1C400134AC9 /* UIViewController+CloseView.m */; };
 		A4B7EC491DCB2F700028C18B /* UIViewController+Split.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B7EC481DCB2F700028C18B /* UIViewController+Split.m */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,8 @@
 		A447E1371DCADA2C00C36F6F /* MasterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterTableViewController.m; sourceTree = "<group>"; };
 		A447E1391DCADA3800C36F6F /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		A447E13A1DCADA3800C36F6F /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		A46014B51DD2D1C400134AC9 /* UIViewController+CloseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CloseView.h"; sourceTree = "<group>"; };
+		A46014B61DD2D1C400134AC9 /* UIViewController+CloseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CloseView.m"; sourceTree = "<group>"; };
 		A4B7EC471DCB2F700028C18B /* UIViewController+Split.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Split.h"; sourceTree = "<group>"; };
 		A4B7EC481DCB2F700028C18B /* UIViewController+Split.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Split.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +102,8 @@
 		A447E1321DCAD54500C36F6F /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				A46014B51DD2D1C400134AC9 /* UIViewController+CloseView.h */,
+				A46014B61DD2D1C400134AC9 /* UIViewController+CloseView.m */,
 				A447E1331DCAD55500C36F6F /* YZSplitViewController.h */,
 				A447E1341DCAD55500C36F6F /* YZSplitViewController.m */,
 				A4B7EC471DCB2F700028C18B /* UIViewController+Split.h */,
@@ -178,6 +183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A46014B71DD2D1C400134AC9 /* UIViewController+CloseView.m in Sources */,
 				A4B7EC491DCB2F700028C18B /* UIViewController+Split.m in Sources */,
 				A447E13B1DCADA3800C36F6F /* DetailViewController.m in Sources */,
 				A447E1381DCADA2C00C36F6F /* MasterTableViewController.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "UIViewController+CloseView.h"
 
 @interface DetailViewController ()
 
@@ -17,6 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.closeView.hidden = YES;
+    NSLog(@"222 %@", self.closeView);
+//    self.closeView.lineColor = [UIColor redColor];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

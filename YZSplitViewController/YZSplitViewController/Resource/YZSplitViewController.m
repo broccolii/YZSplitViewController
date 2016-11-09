@@ -8,8 +8,11 @@
 
 #import "YZSplitViewController.h"
 #import "UIViewController+Split.h"
+#import "UIViewController+CloseView.h"
 
 @interface YZSplitViewController ()
+
+@property (nonatomic, strong) UIViewController *detailViewController;
 
 @end
 
@@ -31,13 +34,11 @@
     return self;
 }
 
-- (instancetype)initWithMasterViewControllerClass:(Class)masterViewControllerClass
-                        detailViewControllerClass:(Class)detailViewControllerClass {
+- (nonnull instancetype)initWithMasterViewController:(nonnull UIViewController *)masterViewController {
     self = [super init];
     if (self) {
         [self setupDefaultValue];
-        [self setMasterViewController:[[masterViewControllerClass alloc] init]
-                 detailViewController:[[detailViewControllerClass alloc] init]];
+        [self setMasterViewController:masterViewController detailViewController:nil];
     }
     return self;
 }
@@ -60,28 +61,31 @@
 
 - (void)setMasterViewController:(UIViewController *)masterViewController detailViewController:(UIViewController *)detailViewController {
     
+    NSAssert(masterViewController != nil, @"masterViewController is nil!!!");
+    
     masterViewController.yz_splitViewController = self;
     detailViewController.yz_splitViewController = self;
     
     _masterViewController = masterViewController;
     _detailViewController = detailViewController;
     
-    _masterNavigationController = [[UINavigationController alloc] initWithRootViewController:_masterViewController];
-    
     if (!_detailViewController) {
         UIViewController *clearViewController = [[UIViewController alloc] init];
         clearViewController.view.backgroundColor = [UIColor clearColor];
         _detailViewController = clearViewController;
     }
-    _detailNavigationController = [[UINavigationController alloc] initWithRootViewController:_detailViewController];
+    if (_detailNavigationController) {
+        [_detailNavigationController removeFromParentViewController];
+        _detailNavigationController = nil;
+    }
+    _detailNavigationController = [[YZSplitDetailNavigationController alloc] initWithRootViewController:_detailViewController];
     
-    [self.detailNavigationController addObserver:self forKeyPath:@"viewControllers" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
-    
-    [_masterNavigationController setNavigationBarHidden:YES];
     [_detailNavigationController setNavigationBarHidden:YES];
     
-    [self addChildViewController:self.masterNavigationController];
+    
+    [self addChildViewController:masterViewController];
     [self addChildViewController:self.detailNavigationController];
+    
     
     [self layoutSubview];
 }
@@ -91,8 +95,11 @@
     
     self.view.backgroundColor = [UIColor colorWithRed:0.933 green:0.933 blue:0.933 alpha:1];
     
-    UIView *masterView = self.masterNavigationController.view;
+    UIView *masterView = self.masterViewController.view;
     [self.view addSubview:masterView];
+    
+    UIView *detailView = self.detailNavigationController.view;
+    [self.view addSubview:detailView];
     
     [masterView setTranslatesAutoresizingMaskIntoConstraints:NO];
     NSLayoutConstraint *topMasterContraint = [NSLayoutConstraint constraintWithItem:masterView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1.0 constant:self.contentInsert.top];
@@ -101,32 +108,63 @@
     NSLayoutConstraint *widthMasterContraint = [NSLayoutConstraint constraintWithItem:masterView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:self.masterWidth];
     
     NSArray *masterViewContraints = @[topMasterContraint, bottomMasterContraint, leftMasterContraint, widthMasterContraint];
-    [self.view addConstraints: masterViewContraints];
+    [NSLayoutConstraint activateConstraints:masterViewContraints];
     
-    
-    UIView *detailView = self.detailNavigationController.view;
-    [self.view addSubview:detailView];
+//    [masterView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.topLayoutGuide).with.offset(self.contentInsert.top);
+//        make.left.equalTo(self.view.mas_left).with.offset(self.contentInsert.left);
+//        make.bottom.equalTo(self.view.mas_bottom).with.offset(-self.contentInsert.bottom);
+//        make.width.mas_equalTo(self.masterWidth);
+//    }];
     
     [detailView setTranslatesAutoresizingMaskIntoConstraints:NO];
     NSLayoutConstraint *topDetailContraint = [NSLayoutConstraint constraintWithItem:detailView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1.0 constant:self.contentInsert.top];
     NSLayoutConstraint *bottomDetailContraint = [NSLayoutConstraint constraintWithItem:detailView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-self.contentInsert.bottom];
     NSLayoutConstraint *rightDetailContraint = [NSLayoutConstraint constraintWithItem:detailView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:-self.contentInsert.right];
-    NSLayoutConstraint *widthDetailContraint = [NSLayoutConstraint constraintWithItem:detailView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:masterView attribute:NSLayoutAttributeRight multiplier:1.0 constant:self.separatorWidth];
+    NSLayoutConstraint *leftDetailContraint = [NSLayoutConstraint constraintWithItem:detailView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:masterView attribute:NSLayoutAttributeRight multiplier:1.0 constant:self.separatorWidth];
+
+    NSArray *detailViewContraints = @[topDetailContraint, bottomDetailContraint, rightDetailContraint, leftDetailContraint];
+    [NSLayoutConstraint activateConstraints:detailViewContraints];
     
-    NSArray *detailViewContraints = @[topDetailContraint, bottomDetailContraint, rightDetailContraint, widthDetailContraint];
-    [self.view addConstraints: detailViewContraints];
+//    [detailView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.topLayoutGuide).with.offset(self.contentInsert.top);
+//        make.bottom.equalTo(self.view.mas_bottom).with.offset(-self.contentInsert.bottom);
+//        make.right.equalTo(self.view.mas_right).with.offset(-self.contentInsert.right);
+//        make.left.equalTo(masterView.mas_right).with.offset(self.separatorWidth);
+//    }];
     
     [self.view setNeedsLayout];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-    if (object == self.detailNavigationController) {
-        self.detailNavigationController.topViewController.yz_splitViewController = self;
-    }
+- (void)replaceDetailViewController:(nonnull UIViewController *)viewController {
+    viewController.closeView.hidden = NO;
+    viewController.yz_splitViewController = self.detailNavigationController.viewControllers[0].yz_splitViewController;
+    self.detailNavigationController.viewControllers = @[viewController];
 }
 
 - (void)dealloc {
     [self.detailNavigationController removeObserver:self forKeyPath:@"viewControllers"];
+}
+
+#pragma mark - getter
+- (UIViewController *)visibleDetailViewController {
+    return self.detailNavigationController.visibleViewController;
+}
+
+- (NSArray<UIViewController *> *)detailViewControllers {
+    return self.detailNavigationController.viewControllers;
+}
+
+@end
+
+@implementation YZSplitDetailNavigationController
+
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    if (self.viewControllers.count > 1) {
+        viewController.closeView.hidden = NO;
+        viewController.yz_splitViewController = self.viewControllers[0].yz_splitViewController;
+    }
+    [super pushViewController:viewController animated:animated];
 }
 
 @end
