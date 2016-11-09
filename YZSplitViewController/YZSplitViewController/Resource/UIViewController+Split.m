@@ -30,7 +30,6 @@
     NSMutableArray<UIViewController *> *viewControllers = [self.viewControllers mutableCopy];
     [viewControllers removeObject:viewControllers.lastObject];
     [viewControllers addObject:viewController];
-    viewController.closeView.hidden = NO;
     viewController.yz_splitViewController = viewControllers[0].yz_splitViewController;
     self.viewControllers = viewControllers;
 }
