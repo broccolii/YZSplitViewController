@@ -11,7 +11,7 @@
 
 @interface UIViewController (Split)
 
-@property (nonatomic, strong) YZSplitViewController *yz_splitViewController;
+@property (nonatomic, assign) YZSplitViewController *yz_splitViewController;
 
 @end
 

@@ -12,8 +12,6 @@
 
 @implementation UIViewController (Split)
 
-@dynamic yz_splitViewController;
-
 - (YZSplitViewController *)yz_splitViewController {
     return (YZSplitViewController *)objc_getAssociatedObject(self, @selector(yz_splitViewController));
 }
@@ -28,9 +26,11 @@
 
 - (void)yz_replaceLastViewController:(UIViewController *)viewController {
     NSMutableArray<UIViewController *> *viewControllers = [self.viewControllers mutableCopy];
-    [viewControllers removeObject:viewControllers.lastObject];
-    [viewControllers addObject:viewController];
-    viewController.yz_splitViewController = viewControllers[0].yz_splitViewController;
+    if([viewControllers count] > 0) {
+        viewController.yz_splitViewController = viewControllers[0].yz_splitViewController;
+        [viewControllers removeObject:viewControllers.lastObject];
+        [viewControllers addObject:viewController];
+    }
     self.viewControllers = viewControllers;
 }
 

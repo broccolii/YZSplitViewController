@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-/****************** 注意! ***************
+/************************** 注意! **************************
  左边的 Master View Controller 传进来 是不会包一层 NavigationController
  右边的 Detail View Controller 是会替你包一层 NavigationController 
  
  如果你要 Master 有 Push 的效果 请传进来一个 NavigationController 
  
  此控件有默认颜色: [UIColor colorWithRed:0.933 green:0.933 blue:0.933 alpha:1]
-***/
+************************** 注意! **************************/
 
 @class YZSplitDetailNavigationController;
 @interface YZSplitViewController : UIViewController
@@ -35,17 +35,40 @@
 @property (nonatomic, assign) CGFloat separatorWidth;
 
 // 默认 detail view controller 是空 但是在 页面上 有一个 Clear 背景色的 UIViewController 要显示页面直接 Push 就可以
+
+
+/**
+ <#Description#>
+
+ @param masterViewController <#masterViewController description#>
+ @return self intance
+ */
 - (nonnull instancetype)initWithMasterViewController:(nonnull UIViewController *)masterViewController;
 
-// 同上
+/**
+ Sets the mainViewController and detailViewController for the splitviewcontroller
+ 
+ @param masterViewController
+ @param detailViewController
+ */
 - (nonnull instancetype)initWithMasterViewController:(nonnull UIViewController *)masterViewController
                                 detailViewController:(nullable UIViewController *)detailViewController;
 
-// 同上
+
+/**
+ Sets the mainViewController and detailViewController for the splitviewcontroller
+
+ @param masterViewController
+ @param detailViewController
+ */
 - (void)setMasterViewController:(nonnull UIViewController *)masterViewController
            detailViewController:(nullable UIViewController *)detailViewController;
 
-// 替换 detail view controller
+/**
+ replace detai view controller
+ 
+ @param viewController
+ */
 - (void)replaceDetailViewController:(nonnull UIViewController *)viewController;
 
 @end

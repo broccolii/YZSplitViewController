@@ -13,7 +13,6 @@ typedef void(^CloseViewTapActionBlock)();
 @interface YZCloseView : UIView
 
 // TODO: lineColor
-
 @property (nonatomic, strong) UIColor *lineColor;
 @property (nonatomic, copy) CloseViewTapActionBlock closeActionBlock;
 

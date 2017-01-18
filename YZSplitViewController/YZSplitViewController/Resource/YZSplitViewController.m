@@ -18,6 +18,7 @@
 
 @implementation YZSplitViewController
 
+#pragma mark - Initializers
 - (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
     if (self) {
@@ -110,13 +111,6 @@
     NSArray *masterViewContraints = @[topMasterContraint, bottomMasterContraint, leftMasterContraint, widthMasterContraint];
     [NSLayoutConstraint activateConstraints:masterViewContraints];
     
-//    [masterView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.topLayoutGuide).with.offset(self.contentInsert.top);
-//        make.left.equalTo(self.view.mas_left).with.offset(self.contentInsert.left);
-//        make.bottom.equalTo(self.view.mas_bottom).with.offset(-self.contentInsert.bottom);
-//        make.width.mas_equalTo(self.masterWidth);
-//    }];
-    
     [detailView setTranslatesAutoresizingMaskIntoConstraints:NO];
     NSLayoutConstraint *topDetailContraint = [NSLayoutConstraint constraintWithItem:detailView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1.0 constant:self.contentInsert.top];
     NSLayoutConstraint *bottomDetailContraint = [NSLayoutConstraint constraintWithItem:detailView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-self.contentInsert.bottom];
@@ -125,13 +119,6 @@
 
     NSArray *detailViewContraints = @[topDetailContraint, bottomDetailContraint, rightDetailContraint, leftDetailContraint];
     [NSLayoutConstraint activateConstraints:detailViewContraints];
-    
-//    [detailView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.topLayoutGuide).with.offset(self.contentInsert.top);
-//        make.bottom.equalTo(self.view.mas_bottom).with.offset(-self.contentInsert.bottom);
-//        make.right.equalTo(self.view.mas_right).with.offset(-self.contentInsert.right);
-//        make.left.equalTo(masterView.mas_right).with.offset(self.separatorWidth);
-//    }];
     
     [self.view setNeedsLayout];
 }
@@ -160,7 +147,7 @@
 @implementation YZSplitDetailNavigationController
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    if (self.viewControllers.count > 1) {
+    if (self.viewControllers.count > 0) {
         viewController.closeView.hidden = NO;
         viewController.yz_splitViewController = self.viewControllers[0].yz_splitViewController;
     }

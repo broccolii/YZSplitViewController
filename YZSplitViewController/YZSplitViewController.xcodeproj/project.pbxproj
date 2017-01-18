@@ -102,12 +102,12 @@
 		A447E1321DCAD54500C36F6F /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				A46014B51DD2D1C400134AC9 /* UIViewController+CloseView.h */,
-				A46014B61DD2D1C400134AC9 /* UIViewController+CloseView.m */,
 				A447E1331DCAD55500C36F6F /* YZSplitViewController.h */,
 				A447E1341DCAD55500C36F6F /* YZSplitViewController.m */,
 				A4B7EC471DCB2F700028C18B /* UIViewController+Split.h */,
 				A4B7EC481DCB2F700028C18B /* UIViewController+Split.m */,
+				A46014B51DD2D1C400134AC9 /* UIViewController+CloseView.h */,
+				A46014B61DD2D1C400134AC9 /* UIViewController+CloseView.m */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
